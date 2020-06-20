@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require ('mongoose-paginate');
 
 const ClientSchema = new mongoose.Schema({
     name: {type: String, required:true },
@@ -12,4 +13,5 @@ const ClientSchema = new mongoose.Schema({
 
 });
 
+ClientSchema.plugin(mongoosePaginate);
 mongoose.model("Client", ClientSchema);

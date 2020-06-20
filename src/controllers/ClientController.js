@@ -5,7 +5,10 @@ const Client = mongoose.model('Client');
 module.exports = {
     //Lista todos os clientes
     async getItens(req, res){
-        const clients = await Client.find();
+        // const clients = await Client.find();
+        //Inicializando paginação
+        const {page=1} = req.query;
+        const clients = await Client.paginate({},{page, limit:10});
         return res.json(clients);
     },
 
@@ -27,7 +30,7 @@ module.exports = {
         return res.json(client);
     },
 
-    // Cria um novo cliente
+    //Remove um cliente
     async removeItem(req, res){
         await Client.findByIdAndRemove(req.params.id);
         return res.json({sucess:true});
