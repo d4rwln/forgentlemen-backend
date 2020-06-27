@@ -6,7 +6,6 @@ const ServiceSchema = new mongoose.Schema({
     title: {type: String, required:true },
     description: {type: String },
     value: {type: Number, required:true },
-    obs: {type: String },
     createdAt:{type: Date, default: Date.now}
     
 

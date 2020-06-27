@@ -12,38 +12,60 @@ module.exports = {
     //Lista todos os scheduleses por client
     async getItensOfClients(req, res) {
         const { page = 1 } = req.query;
-        const scheduless = await Schedules.paginate({}, { page, limit: 10 });//repair
+        const scheduless = await Schedules.paginate({ client_id: req.params.client_id }, { page, limit: 10 });//repair
         return res.json(scheduless);
     },
     //Lista todos os schedules por barbershop
     async getItensOfBarbers(req, res) {
         const { page = 1 } = req.query;
-        const scheduless = await Schedules.finpaginate({}, { page, limit: 10 });//repair
+        const scheduless = await Schedules.paginate({ barber_id: req.params.barber_id }, { page, limit: 10 });//repair
         return res.json(scheduless);
     },
 
 
-    //Lista um schedulese por id
+    //Lista um schedule por id
     async getItem(req, res) {
-        const schedules = await Schedules.findById(req.params.id);
-        return res.json(schedules);
+        try {
+            const schedule = await Schedules.findById(req.params.id);
+            if (!schedule) return res.json({ sucess: false, msg:"Id não encontrado" });
+            return res.json(schedule);
+        } catch (err) {
+            return res.json({ sucess: false});
+        }
+        
     },
 
-    // Cria um novo schedulese
+    // Cria um novo schedule
     async createItem(req, res) {
-        await Schedules.create(req.body);
-        return res.json({ sucess: true });
+        try {
+            const schedule = await Schedules.create(req.body);
+            if (!schedule) return res.json({ sucess: false });
+            return res.json({ sucess: true });
+        } catch{
+            return res.json({ sucess: false });
+        }
     },
 
-    // Atualizar um schedulese
+    // Atualizar um schedule
     async updateItem(req, res) {
-        const schedules = await Schedules.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        return res.json(schedules);
+        try {
+            const schedule = await Schedules.findByIdAndUpdate(req.params.id, req.body, { new: true });
+            if (!schedule) return res.json({ sucess: false, msg:"Id não encontrado" });
+            return res.json(schedule);
+        } catch (err) {
+            return res.json({ sucess: false});
+        }
     },
-
-    //Remove um schedulese
+    
+    //Remove um schedule
     async removeItem(req, res) {
-        await Schedules.findByIdAndRemove(req.params.id);
-        return res.json({ sucess: true });
+        try {
+            const schedule = await Schedules.findByIdAndRemove(req.params.id);
+            if (!schedule) return res.json({ sucess: false, msg:"Id não encontrado" });
+            return res.json({ sucess: true });
+        } catch{
+            return res.json({ sucess: false});
+        }
+
     },
 }

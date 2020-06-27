@@ -6,7 +6,8 @@ const SchedulesSchema = new mongoose.Schema({
     barber_id: {type: Object, required:true },
     service_id: {type: Object, required:true },
     status: {type: String, required:true },
-    value: {type: Number, required:true },
+    day: {type: String, required:true },
+    hour: {type: String, required:true },
     createdAt:{type: Date, default: Date.now}
     
 

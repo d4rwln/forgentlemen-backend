@@ -23,6 +23,7 @@ routes.delete('/barbers/:id', BarberShopController.removeItem);
 
 // rotas dos serviços
 routes.get('/services', ServiceController.getItens);
+routes.get('/servicesOfBarbers/:barber_id', ServiceController.getItensOfBarbers);
 routes.get('/services/:id', ServiceController.getItem);
 routes.post('/services', ServiceController.createItem);
 routes.put('/services/:id', ServiceController.updateItem);
@@ -30,8 +31,8 @@ routes.delete('/services/:id', ServiceController.removeItem);
 
 // rotas dos agendamentos
 routes.get('/schedules', SchedulesController.getItens);
-routes.get('/schedulesOfClients', SchedulesController.getItensOfClients);
-routes.get('/schedulesOfBarbers', SchedulesController.getItensOfBarbers);
+routes.get('/schedulesOfClients/:client_id', SchedulesController.getItensOfClients);
+routes.get('/schedulesOfBarbers/:barber_id', SchedulesController.getItensOfBarbers);
 routes.get('/schedules/:id', SchedulesController.getItem);
 routes.post('/schedules', SchedulesController.createItem);
 routes.put('/schedules/:id', SchedulesController.updateItem);
