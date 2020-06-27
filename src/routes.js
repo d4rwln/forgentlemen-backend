@@ -3,6 +3,7 @@ const routes = express.Router();
 const ClientController = require ('./controllers/ClientController');
 const BarberShopController = require ('./controllers/BarberShopController');
 const ServiceController = require ('./controllers/ServiceController');
+const SchedulesController = require ('./controllers/SchedulesController');
 
 routes.get('/', (req,res)=>{ res.send('Servidor rodando...')});
 
@@ -26,6 +27,15 @@ routes.get('/services/:id', ServiceController.getItem);
 routes.post('/services', ServiceController.createItem);
 routes.put('/services/:id', ServiceController.updateItem);
 routes.delete('/services/:id', ServiceController.removeItem);
+
+// rotas dos agendamentos
+routes.get('/schedules', SchedulesController.getItens);
+routes.get('/schedulesOfClients', SchedulesController.getItensOfClients);
+routes.get('/schedulesOfBarbers', SchedulesController.getItensOfBarbers);
+routes.get('/schedules/:id', SchedulesController.getItem);
+routes.post('/schedules', SchedulesController.createItem);
+routes.put('/schedules/:id', SchedulesController.updateItem);
+routes.delete('/schedules/:id', SchedulesController.removeItem);
 
 
 
