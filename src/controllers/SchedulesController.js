@@ -5,21 +5,34 @@ const Schedules = mongoose.model('Schedules');
 module.exports = {
     //Lista todos os schedules
     async getItens(req, res) {
-        const { page = 1 } = req.query;
-        const scheduless = await Schedules.paginate({}, { page, limit: 10 });
-        return res.json(scheduless);
+        try {
+            const { page = 1 } = req.query;
+            const scheduless = await Schedules.paginate({}, { page, limit: 10 });
+            return res.json(scheduless);
+        } catch {
+            return res.json({ sucess: false });
+        }
     },
     //Lista todos os scheduleses por client
     async getItensOfClients(req, res) {
-        const { page = 1 } = req.query;
-        const scheduless = await Schedules.paginate({ client_id: req.params.client_id }, { page, limit: 10 });//repair
-        return res.json(scheduless);
+        try {
+
+            const { page = 1 } = req.query;
+            const scheduless = await Schedules.paginate({ client_id: req.params.client_id }, { page, limit: 10 });//repair
+            return res.json(scheduless);
+        } catch {
+            return res.json({ sucess: false });
+        }
     },
     //Lista todos os schedules por barbershop
     async getItensOfBarbers(req, res) {
-        const { page = 1 } = req.query;
-        const scheduless = await Schedules.paginate({ barber_id: req.params.barber_id }, { page, limit: 10 });//repair
-        return res.json(scheduless);
+        try {
+            const { page = 1 } = req.query;
+            const scheduless = await Schedules.paginate({ barber_id: req.params.barber_id }, { page, limit: 10 });//repair
+            return res.json(scheduless);
+        } catch {
+            return res.json({ sucess: false });
+        }
     },
 
 
@@ -27,12 +40,12 @@ module.exports = {
     async getItem(req, res) {
         try {
             const schedule = await Schedules.findById(req.params.id);
-            if (!schedule) return res.json({ sucess: false, msg:"Id não encontrado" });
+            if (!schedule) return res.json({ sucess: false, msg: "Id não encontrado" });
             return res.json(schedule);
         } catch (err) {
-            return res.json({ sucess: false});
+            return res.json({ sucess: false });
         }
-        
+
     },
 
     // Cria um novo schedule
@@ -50,21 +63,21 @@ module.exports = {
     async updateItem(req, res) {
         try {
             const schedule = await Schedules.findByIdAndUpdate(req.params.id, req.body, { new: true });
-            if (!schedule) return res.json({ sucess: false, msg:"Id não encontrado" });
+            if (!schedule) return res.json({ sucess: false, msg: "Id não encontrado" });
             return res.json(schedule);
         } catch (err) {
-            return res.json({ sucess: false});
+            return res.json({ sucess: false });
         }
     },
-    
+
     //Remove um schedule
     async removeItem(req, res) {
         try {
             const schedule = await Schedules.findByIdAndRemove(req.params.id);
-            if (!schedule) return res.json({ sucess: false, msg:"Id não encontrado" });
+            if (!schedule) return res.json({ sucess: false, msg: "Id não encontrado" });
             return res.json({ sucess: true });
         } catch{
-            return res.json({ sucess: false});
+            return res.json({ sucess: false });
         }
 
     },

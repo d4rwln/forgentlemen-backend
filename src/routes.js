@@ -5,7 +5,7 @@ const BarberShopController = require ('./controllers/BarberShopController');
 const ServiceController = require ('./controllers/ServiceController');
 const SchedulesController = require ('./controllers/SchedulesController');
 
-routes.get('/', (req,res)=>{ res.send('Servidor rodando...')});
+routes.get('/', (req,res)=>{ res.send('Server running...')});
 
 // rotas de clientes
 routes.get('/clients', ClientController.getItens);

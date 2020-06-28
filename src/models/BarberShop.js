@@ -7,11 +7,11 @@ const BarberShopSchema = new mongoose.Schema({
     email: {type: String, required:true }, 
     uf: {type: String, required:true },
     city: {type: String, required:true },
-    pass: {type: String, required:true },
+    pass: {type: String, required:true},
     createdAt:{type: Date, default: Date.now}
     
 
 });
 
 BarberShopSchema.plugin(mongoosePaginate);
-mongoose.model("BarberShop", BarberShopSchema);
+mongoose.model("BarberShop", BarberShopSchema); 
