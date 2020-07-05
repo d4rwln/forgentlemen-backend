@@ -32,7 +32,7 @@ module.exports = {
             await Client.create(req.body)
             return res.json({ sucess: true });
         } catch{
-            return res.json({ sucess: false });
+            return res.status(404).send ({ sucess: false });
         }
     },
 
