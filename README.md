@@ -12,7 +12,7 @@
 <div align="center">
 
 [![HitCount](https://hits.dwyl.com/d4rwln/forgentlemen-backend.svg)](http://hits.dwyl.com/d4rwln/forgentlemen-backend)
-[![npm](https://img.shields.io/npm/v/@unform/core.svg?color=%237159c1)]()
+[![npm](https://img.shields.io/npm/v/npm?style=flat-square)]()
 
 
 </div>
@@ -47,8 +47,8 @@ npm start dev
 
 Este aplicativo não possui uma interface, mas você pode acessar o Frontend clicando em [aqui](https://github.com/d4rwln/forgentlemen-mobile).
 
-## Technologies
-- Linguagem Javascript
+## Tecnologias
+**Linguagem Javascript**
 
 **Estruturas / Libs**
 
