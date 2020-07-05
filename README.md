@@ -18,44 +18,51 @@
 </div>
 
 
-# Introduction
+# Introdução
 
-This application aims to help **Barber Shops** to connect with their customers or **Gentlemens**. Provides an access API.
+Esta aplicação tem como objetivo ajudar **Barbearias** a se conectar com seus clientes/cavalheiros (**Gentlemen**). 
+- Fornece uma API de acesso.
+- Models/Entitys: 
+ { barbershop, gentlemen, pedidos e serviços }  
 
-## Requirements
-Install Node, NPM and MongoDB
+## Requisitos
+Instalar o ambiente de execução **Node**, gerenciador de pacotes e dependências **NPM** e o banco de dados **MongoDB**
 
-## Initialization
-Install the dependencies first
-`` bash
+## Inicialização
 
-npm isntall
+- Crie um banco de dados chamado **db_gentlemen**.
+
+```bash
+# Instale as dependências primeiro
+npm install
+# Rode o script
 npm start dev
+ ```
 
-``
-Create a DB called ** db_gentlemen **.
+
+
 
 ## Layout
 
 
-This application does not have an interface, but you can access its Frontend by clicking [here] (https://github.com/d4rwln/forgentlemen-mobile)
+Este aplicativo não possui uma interface, mas você pode acessar o Frontend clicando em [aqui](https://github.com/d4rwln/forgentlemen-mobile).
 
 ## Technologies
-- Javascript Language
+- Linguagem Javascript
 
-**Frameworks / Libs**
+**Estruturas / Libs**
 
-[Node.js](https://nodejs.org/en/) - Application base
+[Node.js](https://nodejs.org/en/) - Base de aplicativos
 
-[Express](https://expressjs.com/) - Route management
+[Express](https://expressjs.com/) - Gerenciamento de rotas
 
-[Mongoose](https://mongoosejs.com/) - Schema model for mongoDB
+[Mongoose](https://mongoosejs.com/) - Modelo de esquema para o mongoDB
 
-[MongoDb](https://www.mongodb.com/) - DataBase
+[MongoDb](https://www.mongodb.com/) - Banco de dados
 
-## Author
-** Darwin Pinheiro ** [Linkedin] ()
+## Autor
+Darwin Pinheiro - [Linkedin]()
 
-## License
+## Licença
 
-MIT © [Darwin](https://github.com/d4rwln)
+MIT © [Darwin] (https://github.com/d4rwln)
