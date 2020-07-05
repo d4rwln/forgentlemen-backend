@@ -65,4 +65,4 @@ Darwin Pinheiro - [Linkedin]()
 
 ## Licença
 
-MIT © [Darwin] (https://github.com/d4rwln)
+MIT © [Darwin](https://github.com/d4rwln)
